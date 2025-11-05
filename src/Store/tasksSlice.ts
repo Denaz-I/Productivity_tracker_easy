@@ -22,8 +22,13 @@ const tasksSlice = createSlice({
         removeTask: (state, action: PayloadAction<string>) =>{
             return state.filter(x => x.id !== action.payload);
         },
+        setAllCompleted: (state, action: PayloadAction<boolean>) => {
+            state.forEach((task) => {
+                task.completed = action.payload;
+            });
+        },
     }
 })
 
-export const {addTask, toggleTask, removeTask} = tasksSlice.actions;
+export const {addTask, toggleTask, removeTask, setAllCompleted} = tasksSlice.actions;
 export default tasksSlice.reducer
