@@ -1,15 +1,24 @@
-import { useAppSelector } from "../Store/hooks";
-import { Typography } from "@mui/material";
+import { useAppSelector, useAppDispatch } from "../Store/hooks";
 import TaskCard from "./TaskCard";
 import AddTaskForm from "./AddTaskForm";
 import AllTaskCompleted from "./AllTaskCompleted";
+import { resetCompletedTaskDaily } from "../Store/tasksSlice";
 
 function TasksList() {
+    const dispatch = useAppDispatch()
     const tasks = useAppSelector((t) => t.tasks);
+
+    const oggi = new Date().toDateString();
+    const reset = localStorage.getItem("lastResetDate")
+
+    const ora = new Date().getHours();
+    if (ora >= 6 && reset !== oggi) {
+        dispatch(resetCompletedTaskDaily())
+        localStorage.setItem("lastResetDate", oggi)
+    }
 
     return (
         <div>
-            <Typography variant="h4" sx={{}}>Le mie attività</Typography>
             <AddTaskForm />
                 <AllTaskCompleted />
                 {tasks.length === 0 ? (

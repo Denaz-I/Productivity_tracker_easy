@@ -2,7 +2,7 @@ import { Box, Checkbox } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "../Store/hooks";
 import { setAllCompleted } from "../Store/tasksSlice";
 
-export default function AllTaskCompleted () {
+function AllTaskCompleted () {
     const dispatch = useAppDispatch()
 
     const allCompleted = useAppSelector(
@@ -13,8 +13,11 @@ export default function AllTaskCompleted () {
         <Box>
             <Checkbox checked={allCompleted}
                 onChange={(t) => dispatch(setAllCompleted(t.target.checked))}
-                color="success" />
+                color="success" 
+                sx={{marginLeft:2}}/>
         <span>{allCompleted ? "Deseleziona tutte" : "Completa tutte"}</span>
         </Box>
     )
 }
+
+export default AllTaskCompleted

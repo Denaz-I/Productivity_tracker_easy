@@ -1,11 +1,11 @@
 import TasksList from "../Components/TaskList";
-import Theme from "../Components/Theme";
+import Header from "../Components/Header";
 
 function Tasks() {
 
   return (
     <div>
-      <Theme />
+      <Header />
       <TasksList />
     </div>
   );

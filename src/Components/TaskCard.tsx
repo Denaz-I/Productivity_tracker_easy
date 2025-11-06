@@ -2,7 +2,7 @@ import type { Task } from "../Types/task";
 import { useAppDispatch, useAppSelector } from "../Store/hooks";
 import { toggleTask, removeTask } from "../Store/tasksSlice";
 import {ListItem, Checkbox, Typography, IconButton, Paper} from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
+import ClearIcon from '@mui/icons-material/Clear';
 
 type Props = { task: Task };
 
@@ -30,7 +30,7 @@ function TaskCard({ task }: Props) {
             color="error"
             onClick={() => dispatch(removeTask(task.id))}
           >
-            <DeleteIcon />
+            <ClearIcon />
           </IconButton>
         }
       >

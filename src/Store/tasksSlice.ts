@@ -1,6 +1,7 @@
 import { createSlice} from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { Task } from "../Types/task";
+
 const initialState: Task[] = [];
 
 const tasksSlice = createSlice({
@@ -27,8 +28,11 @@ const tasksSlice = createSlice({
                 task.completed = action.payload;
             });
         },
+        resetCompletedTaskDaily: (state) => {
+            return state.filter((x) => !x.completed)
+        }
     }
 })
 
-export const {addTask, toggleTask, removeTask, setAllCompleted} = tasksSlice.actions;
+export const {addTask, toggleTask, removeTask, setAllCompleted, resetCompletedTaskDaily} = tasksSlice.actions;
 export default tasksSlice.reducer

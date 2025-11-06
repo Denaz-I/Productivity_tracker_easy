@@ -22,6 +22,7 @@ function AddTaskForm() {
             label="Aggiungi un'attività" 
             variant="standard" value={title}
             onChange={(e) => setTitle(e.target.value)}
+            sx={{marginLeft:3}}
         />
     </form>
   );

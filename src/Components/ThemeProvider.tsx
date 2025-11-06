@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import type { RootState } from "../Store/store";
 import App from "../App";
 
-export default function ThemedApp() {
+function ThemedApp() {
   const mode = useSelector((state: RootState) => state.theme.mode);
 
   const theme = useMemo(
@@ -32,3 +32,5 @@ export default function ThemedApp() {
     </ThemeProvider>
   );
 }
+
+export default ThemedApp
