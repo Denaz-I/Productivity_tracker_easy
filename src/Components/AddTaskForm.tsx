@@ -18,8 +18,8 @@ function AddTaskForm() {
 
   return (
     <form onSubmit={onSubmit} className="flex gap-2 mb-4">
-        <TextField id="standard-basic" 
-            label="Aggiungi un'attività" 
+        <TextField
+            label="Aggiungi attività e premi invio" 
             variant="standard" value={title}
             onChange={(e) => setTitle(e.target.value)}
             sx={{marginLeft:3}}

@@ -3,6 +3,7 @@ import TaskCard from "./TaskCard";
 import AddTaskForm from "./AddTaskForm";
 import AllTaskCompleted from "./AllTaskCompleted";
 import { resetCompletedTaskDaily } from "../Store/tasksSlice";
+import { Typography } from "@mui/material";
 
 function TasksList() {
     const dispatch = useAppDispatch()
@@ -22,7 +23,7 @@ function TasksList() {
             <AddTaskForm />
                 <AllTaskCompleted />
                 {tasks.length === 0 ? (
-                    <p className="text-center text-gray-500">Nessuna attività ancora</p>
+                    <Typography color="grey" sx={{ml:1}}>Non hai ancora inserito attività</Typography>
                 ) : (
                     tasks.map((t) => <TaskCard key={t.id} task={t} />)
                 )}

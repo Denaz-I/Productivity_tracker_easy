@@ -8,16 +8,21 @@ function AllTaskCompleted () {
     const allCompleted = useAppSelector(
         (state) => state.tasks.length > 0 && state.tasks.every((t) => t.completed)
     );
+    const tasks = useAppSelector((t) => t.tasks)
+    const checkTasks = tasks.length
 
-    return (
-        <Box>
-            <Checkbox checked={allCompleted}
-                onChange={(t) => dispatch(setAllCompleted(t.target.checked))}
-                color="success" 
-                sx={{marginLeft:2}}/>
-        <span>{allCompleted ? "Deseleziona tutte" : "Completa tutte"}</span>
-        </Box>
-    )
+    if (checkTasks > 0) {
+
+        return (
+            <Box>
+                <Checkbox checked={allCompleted}
+                    onChange={(t) => dispatch(setAllCompleted(t.target.checked))}
+                    color="success" 
+                    sx={{marginLeft:2}}/>
+                <span>{allCompleted ? "Deseleziona tutte le attività" : "Completa tutte le attività"}</span>
+            </Box>
+        )
+    }
 }
 
 export default AllTaskCompleted
