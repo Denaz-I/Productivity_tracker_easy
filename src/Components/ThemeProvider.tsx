@@ -12,12 +12,12 @@ function ThemedApp() {
       createTheme({
         palette: {
           mode,
-          ...(mode === "light"
+          ...(mode === "dark"
             ? {
-                background: { default: "#f5f5f5", paper: "#fff" },
-              }
+              background: { default: "#121212", paper: "#1e1e1e" },
+            }
             : {
-                background: { default: "#121212", paper: "#1e1e1e" },
+              background: { default: "#f5f5f5", paper: "#fff" },
               }),
         },
         shape: { borderRadius: 10 },
