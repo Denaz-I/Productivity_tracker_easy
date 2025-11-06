@@ -23,7 +23,7 @@ function TasksList() {
             <AddTaskForm />
                 <AllTaskCompleted />
                 {tasks.length === 0 ? (
-                    <Typography color="grey" sx={{ml:1}}>Non hai ancora inserito attività</Typography>
+                    <Typography color="grey" sx={{ml:1}}>Non hai ancora inserito nessuna attività</Typography>
                 ) : (
                     tasks.map((t) => <TaskCard key={t.id} task={t} />)
                 )}

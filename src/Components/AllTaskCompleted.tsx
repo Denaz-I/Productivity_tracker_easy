@@ -18,7 +18,7 @@ function AllTaskCompleted () {
                 <Checkbox checked={allCompleted}
                     onChange={(t) => dispatch(setAllCompleted(t.target.checked))}
                     color="success" 
-                    sx={{marginLeft:2}}/>
+                    sx={{marginLeft:1}}/>
                 <span>{allCompleted ? "Deseleziona tutte le attività" : "Completa tutte le attività"}</span>
             </Box>
         )
